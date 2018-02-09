@@ -1,6 +1,7 @@
 import React from 'react'
 import { Alert, Col, Form , Button} from 'react-bootstrap'
 import TextField from './fields/TextField'
+import { Link } from 'react-router-dom'
 
 const SignUp = () => (
   <div className="row">
@@ -21,7 +22,7 @@ const SignUp = () => (
         <Button type="submit" bsStyle="primary" className="mb-15 mr-15">
           Sign Up
         </Button>
-        <p>Already a member? <a href="/sign-in">Sign In</a></p>
+        <p>Already a member? <Link to="/sign_in">Sign In</Link></p>
       </Form>
     </Col>
   </div>
