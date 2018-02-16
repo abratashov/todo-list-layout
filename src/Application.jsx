@@ -1,39 +1,60 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Header from 'components/Header'
 import SignUp from 'components/SignUp'
 import SignIn from 'components/SignIn'
 import Projects from 'components/Projects'
+import SessionService from 'components/SessionService'
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  Redirect
 } from 'react-router-dom'
 
 import 'scss/application.scss'
 
-const Application = () =>
-  <div>
-    <Header />
-    <div className="page-container">
-      <div className="container">
-        <Router>
-          <div>
-            <Link to="/sign_in">Sign In</Link>
-            &nbsp;/&nbsp;
-            <Link to="/sign_up">Sign Up</Link>
-            &nbsp;/&nbsp;
-            <Link to="/projects">Projects</Link>
+export default class Application extends Component {
 
-            <hr/>
-            <div>
-              <Route exact path="/sign_in" component={SignIn}/>
-              <Route path="/sign_up" component={SignUp}/>
-              <Route path="/projects" component={Projects}/>
-            </div>
+  constructor(props) {
+    super(props);
+  }
+
+  signOut(event){
+    event.preventDefault();
+    SessionService.signOut();
+  }
+
+  render() {
+    return (
+      <div>
+        <Header />
+        <div className="page-container">
+          <div className="container">
+            <Router>
+              <div>
+                <Link to="/sign_in">Sign In</Link>
+                &nbsp;/&nbsp;
+                <Link to="/sign_up">Sign Up</Link>
+                &nbsp;/&nbsp;
+                <Link to="/sign_out" onClick={this.signOut.bind(this)}>Sign Out</Link>
+                &nbsp;/&nbsp;
+                <Link to="/projects">Projects</Link>
+
+                <hr/>
+                { SessionService.get() ? (<Redirect to={{ pathname: "/projects" }}/>)
+                              : (<Redirect to={{ pathname: "/sign_in" }}/>)}
+                <div>
+                  <Route path="/sign_in" component={SignIn}/>
+                  <Route path="/sign_out" component={SignIn}/>
+                  <Route path="/sign_up" component={SignUp}/>
+                  <Route path="/projects" component={Projects}/>
+                </div>
+              </div>
+            </Router>
           </div>
-        </Router>
+        </div>
       </div>
-    </div>
-  </div>
+    )
+  }
 
-export default Application
+}

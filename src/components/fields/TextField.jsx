@@ -6,12 +6,14 @@ import {
   // HelpBlock
 } from 'react-bootstrap'
 
-const TextField = ({ label, placeholder, className }) => (
+const TextField = ({ label, placeholder, className, value, onChange}) => (
   <FormGroup className={className}>
     { label && <ControlLabel>{label}</ControlLabel> }
     <FormControl
       type="text"
       placeholder={placeholder}
+      value={value}
+      onChange={onChange.bind(this)}
     />
     {/* <HelpBlock>Validation is based on string length.</HelpBlock> */}
   </FormGroup>
