@@ -5,13 +5,15 @@ import {
 } from 'react-bootstrap'
 
 class DeleteModal extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+    this.destroy = props.onDestroy
     this.state = {
       showModal: false
     }
     this.close = this.close.bind(this)
     this.open = this.open.bind(this)
+    this.remove = this.remove.bind(this)
   }
 
   close() {
@@ -20,6 +22,11 @@ class DeleteModal extends Component {
 
   open() {
     this.setState({ showModal: true })
+  }
+
+  remove(){
+    this.destroy()
+    this.close()
   }
 
   render() {
@@ -42,7 +49,7 @@ class DeleteModal extends Component {
             </p>
           </Modal.Body>
           <Modal.Footer>
-            <Button bsStyle="primary">Delete</Button>
+            <Button bsStyle="primary" onClick={this.remove}>Delete</Button>
             <Button bsStyle="default" onClick={this.close}>Cancel</Button>
           </Modal.Footer>
         </Modal>

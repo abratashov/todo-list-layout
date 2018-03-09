@@ -15,3 +15,15 @@ Local Storage
 Axios
   https://github.com/axios/axios
   https://stephenhowells.net/rails-5-user-registration-with-devise-vue-js-and-axios/
+
+JSON API
+  http://jsonapi.org/implementations/
+  https://github.com/cantierecreativo/redux-bees
+  https://github.com/tomharvey/redux-json-api-demo/blob/master/main.js
+
+Render items
+  https://reactjs.org/docs/lists-and-keys.html
+
+Examples App
+  https://github.com/reactjs/redux/tree/master/examples/real-world
+  https://medium.com/@jacobp100/you-arent-using-redux-middleware-enough-94ffe991e6

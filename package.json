@@ -29,6 +29,7 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
+    "axios": "*",
     "bootstrap": "^3.3.7",
     "bootstrap-sass": "^3.3.7",
     "classnames": "^2.2.5",
@@ -39,6 +40,7 @@
     "react-router": "^4.2.0",
     "react-router-bootstrap": "^0.24.4",
     "react-router-dom": "^4.2.2",
-    "axios": "*"
+    "redux": "^3.7.2",
+    "redux-bees": "^0.1.7"
   }
 }
