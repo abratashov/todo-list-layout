@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import TextField from 'components/fields/TextField'
-import SessionService from 'components/SessionService'
+
 import Api from 'components/Api'
 
 export default class ProjectCreateForm extends Component {
@@ -14,7 +14,6 @@ export default class ProjectCreateForm extends Component {
     this.create = this.create.bind(this);
     this.cancel = this.cancel.bind(this);
     this.api = Api.instance();
-    SessionService.initialize();
   }
 
   create(){

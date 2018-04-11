@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import classNames from 'classnames'
 import { Form, Button } from 'react-bootstrap'
 import TextField from 'components/fields/TextField'
-import DeleteModal from 'components/project/DeleteModal'
-import ProjectTaskList from 'components/project/ProjectTaskList'
+
 import Settings from 'components/Settings'
-import SessionService from 'components/SessionService'
+import DeleteModal from 'components/project/DeleteModal'
+import Tasks from 'components/project/task/Tasks'
+
 import Api from 'components/Api'
 
 export default class ProjectItem extends Component {
@@ -26,7 +27,6 @@ export default class ProjectItem extends Component {
     this.destroy = this.destroy.bind(this)
     this.cancel = this.cancel.bind(this)
     this.api = Api.instance();
-    SessionService.initialize()
   }
 
   toggle() {
@@ -107,7 +107,7 @@ export default class ProjectItem extends Component {
             </div>
           </div>
           <div className="project-info__body">
-            {/*<ProjectTaskList />*/}
+            <Tasks projectId={this.state.id}/>
           </div>
         </div>
       </div>
