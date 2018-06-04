@@ -20,7 +20,7 @@ export default class TaskItem extends Component {
       done: props.attributes.done || false,
       deadline: props.attributes.deadline,
       position: props.attributes.position,
-      // commentsCount: 0,
+      commentsCount: props.attributes['comments-count'],
       projectInfoClass: '',
       projectClass: ''
     }
@@ -75,7 +75,10 @@ export default class TaskItem extends Component {
           </Checkbox>
         </FormGroup>
         <div className="no-shrink pt-5">
-          {/*<CommentModal />*/}
+          <CommentModal count={this.state.commentsCount}
+                        projectId={this.props.projectId}
+                        taskId={this.props.id}
+                        parentUpdate={this.parentUpdate}/>
           <TaskModal projectId={this.state.projectId}
                      id={this.state.id}
                      attributes={this.state.attributes}

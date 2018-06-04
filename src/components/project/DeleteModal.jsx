@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import {
-  Modal,
-  Button
-} from 'react-bootstrap'
+import { Modal, Button, Glyphicon } from 'react-bootstrap'
 
 class DeleteModal extends Component {
   constructor(props) {
@@ -32,9 +29,7 @@ class DeleteModal extends Component {
   render() {
     return (
       <div className="align-middle d-inline-block mb-5">
-        <span onClick={this.open}>
-          Delete
-        </span>
+        <Glyphicon glyph="remove" onClick={this.open} />
         <Modal
           bsSize="small"
           show={this.state.showModal}

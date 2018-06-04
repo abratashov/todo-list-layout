@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import classNames from 'classnames'
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button, Glyphicon } from 'react-bootstrap'
 import TextField from 'components/fields/TextField'
 
 import Settings from 'components/Settings'
@@ -102,7 +102,8 @@ export default class ProjectItem extends Component {
               {this.state.name}
             </p>
             <div className="project-info__actions">
-              <span className="align-middle d-inline-block mb-5 mr-5" onClick={this.edit}>Edit</span>
+              <Glyphicon glyph="pencil" onClick={this.edit} />
+              &nbsp;
               <DeleteModal onDestroy={this.destroy}/>
             </div>
           </div>

@@ -27,6 +27,7 @@ export default class Application extends Component {
   render() {
     return (
       <div>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet" />
         <Header />
         <div className="page-container">
           <div className="container">

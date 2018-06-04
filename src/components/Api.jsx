@@ -16,7 +16,10 @@ export default class Api extends Component {
       getTask:      { method: get,     path: '/projects/:projectId/tasks/:id' },
       createTask:   { method: post,    path: '/projects/:projectId/tasks'     },
       updateTask:   { method: patch,   path: '/projects/:projectId/tasks/:id' },
-      destroyTask:  { method: destroy, path: '/projects/:projectId/tasks/:id' }
+      destroyTask:  { method: destroy, path: '/projects/:projectId/tasks/:id' },
+
+      getComments:  { method: get,     path: '/projects/:projectId/tasks/:id/comments' },
+      destroyComment: { method: destroy, path: '/projects/:projectId/tasks/:taskId/comments/:id' }
     }
 
     const config = {

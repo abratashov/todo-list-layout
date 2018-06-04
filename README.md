@@ -27,3 +27,7 @@ Render items
 Examples App
   https://github.com/reactjs/redux/tree/master/examples/real-world
   https://medium.com/@jacobp100/you-arent-using-redux-middleware-enough-94ffe991e6
+
+  https://davidkpiano.github.io/react-redux-form/docs/recipes/redux-form.html
+  https://github.com/davidkpiano/react-redux-form
+  https://github.com/davidkpiano/react-redux-form/blob/6c00ea4b40669e4e003c6bb61d74f727b4aaf143/docs/guides/faqs.md
