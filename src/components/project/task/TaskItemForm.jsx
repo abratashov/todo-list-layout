@@ -60,12 +60,12 @@ export default class TaskItemForm extends Component {
     return (
       <form>
           <Row >
-            <Col md={8}>
+            <Col md={7}>
               <code>
                 <TextField value={ this.state.name } onChange={this.changeName.bind(this)} placeholder="Enter Task Name..." className="project-task-edit-field"/>
               </code>
             </Col>
-            <Col md={4}>
+            <Col md={5}>
               <code>
                 <FormGroup className="project-task-edit-field">
                   <DatePicker value={this.state.deadline} onChange={this.changeDate.bind(this)} />
@@ -75,7 +75,7 @@ export default class TaskItemForm extends Component {
           </Row>
         <div className="divider" />
         <div className="project-task-edit-btn">
-          <Button bsStyle="info" className="mb-5 mr-15"  onClick={this.save}>{ this.state.id ? 'Save' : 'Add' }</Button>
+          <Button bsStyle="info" className="mb-5 mr-15" onClick={this.save}>{ this.state.id ? 'Save' : 'Add' }</Button>
           { (this.state.id)
             ? ''
             : <Button bsStyle="default" className="mb-5 mr-15" onClick={this.cancel}>Cancel</Button> }

@@ -28,18 +28,26 @@ export default class Application extends Component {
     return (
       <div>
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet" />
+
         <Header />
         <div className="page-container">
           <div className="container">
             <Router>
               <div>
-                <Link to="/sign_in">Sign In</Link>
-                &nbsp;/&nbsp;
-                <Link to="/sign_up">Sign Up</Link>
-                &nbsp;/&nbsp;
-                <Link to="/sign_out" onClick={this.signOut.bind(this)}>Sign Out</Link>
-                &nbsp;/&nbsp;
-                <Link to="/projects">Projects</Link>
+                <div className="right">
+                { SessionService.get() ?
+                  <div>
+                    <Link to="/sign_out" onClick={this.signOut.bind(this)}>Sign Out</Link>
+                    <Link to="/projects"></Link>
+                  </div>
+                  :
+                  <div>
+                    <Link to="/sign_in">Sign In</Link>
+                    &nbsp;/&nbsp;
+                    <Link to="/sign_up">Sign Up</Link>
+                  </div>
+                }
+                </div>
 
                 <hr/>
                 { SessionService.get() ? (<Redirect to={{ pathname: "/projects" }}/>)

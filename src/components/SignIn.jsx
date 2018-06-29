@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Alert, Col, Form , Button} from 'react-bootstrap'
+import AlertDismissable from './AlertDismissable'
 import TextField from './fields/TextField'
 import { Link } from 'react-router-dom'
 import SessionService from './SessionService'
@@ -10,9 +11,11 @@ export default class SignIn extends Component {
     super(props);
     this.state = {
       username: 'abratashov',
-      password: 'password'
+      password: 'password',
+      errorShow: false
     };
     this.onChange = this.onChange.bind(this);
+    this.errorHandle = this.errorHandle.bind(this);
   }
 
   onChange(e) {
@@ -25,7 +28,14 @@ export default class SignIn extends Component {
     SessionService.signIn({
       'username': this.state.username,
       'password': this.state.password
-    }, {redirectFunction: this.props.history.push});
+    }, {
+      redirectFunction: this.props.history.push,
+      errorHandle:  this.errorHandle
+    });
+  }
+
+  errorHandle(){
+    this.setState({ errorShow: true });
   }
 
   changeUsername(event){ this.setState({username: event.target.value}); }
@@ -36,9 +46,7 @@ export default class SignIn extends Component {
       <div className="row">
         <Col sm={8} smOffset={2} md={6} mdOffset={3}>
           <h2>Sign In</h2>
-          <Alert bsStyle="danger">
-            <p className="mb-5">Incorrect login or(and) password.</p>
-          </Alert>
+          <AlertDismissable show={this.state.errorShow} msg="Incorrect login or(and) password."/>
           <Form>
             <div className="mb-20">
               <TextField placeholder="User Name" value={this.state.username} onChange={this.changeUsername.bind(this)}/>

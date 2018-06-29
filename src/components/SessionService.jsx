@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import Settings from './Settings'
 
-export default class SessionService  extends Component {
+export default class SessionService extends Component {
   constructor(props) {
     super(props);
     SessionService.initialize();
@@ -18,19 +18,25 @@ export default class SessionService  extends Component {
     axios.post(`http://${Settings.options().host}/auth`, params)
       .then((res) => {
         if (res.headers['uid']) {
+          options.successHandle();
           SessionService.set(res.headers);
-          options.redirectFunction({ pathname: '/projects' });
+          setTimeout(function(){ document.location.href = '/' }, 1000);
         }
+      }).catch(function (error) {
+        if (error.response) options.errorHandle(error.response.data.errors[0]);
       });
   }
 
   static signIn(params, options) {
+    let self = this;
     axios.post(`http://${Settings.options().host}/auth/sign_in`, params)
       .then((res) => {
         if (res.headers['uid']) {
           SessionService.set(res.headers);
-          options.redirectFunction({ pathname: '/projects' });
+          setTimeout(function(){ document.location.href = '/' }, 1000);
         }
+      }).catch(function (error) {
+        if (error.response) options.errorHandle(error.response.data.errors[0]);
       });
   }
 
@@ -62,6 +68,7 @@ export default class SessionService  extends Component {
     localStorage.removeItem('client');
     localStorage.removeItem('access-token');
     window.location.replace(window.location.origin);
+    document.location.href= '/';
   }
 
 }

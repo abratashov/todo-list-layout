@@ -14,7 +14,7 @@ const Header = () => (
           <h1 className="mt-0 mb-5">Simple ToDo List</h1>
         </div>
         <div className="col-xs-3 text-right">
-          <button className="mb-5">Exit</button>
+          {/*<button className="mb-5">Exit</button>*/}
         </div>
       </div>
     </div>
