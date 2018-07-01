@@ -5,6 +5,8 @@ const webpack = require('webpack')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+const port = (process.env.PORT || 8080);
+
 module.exports = {
   entry: {
     app: './src/index.js',
@@ -50,5 +52,10 @@ module.exports = {
 
     new webpack.HashedModuleIdsPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin()
-  ]
+  ],
+
+  devServer: {
+    inline:true,
+    port: port
+  }
 }

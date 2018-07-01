@@ -25,7 +25,7 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "webpack": "^3.5.5",
-    "webpack-dev-server": "^2.7.1",
+    "webpack-dev-server": "^2.11.2",
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
@@ -47,5 +47,6 @@
     "redux-bees": "^0.1.7",
     "redux-reset": "^0.3.0",
     "redux-thunk": "^2.2.0"
-  }
+  },
+  "postinstall": "webpack -p --config ./webpack.config.prod.js --progress"
 }
