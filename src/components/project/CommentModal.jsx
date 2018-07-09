@@ -9,8 +9,9 @@ import { FormGroup, ControlLabel, FormControl, Modal, Button, Glyphicon } from '
 
 import CommentService from 'components/CommentService'
 import Api from 'components/Api'
+import Settings from 'components/Settings'
 
-const IMAGE_SERVER = 'http://localhost:3000'
+const IMAGE_SERVER = `http://${Settings.options().host}`;
 
 const initialCommentState = {
   body: '',
