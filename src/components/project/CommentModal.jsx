@@ -103,7 +103,10 @@ class CommentModal extends Component {
                     model=".body"
                     placeholder="Enter Your Comment"
                     required
-                    validators={{ maxLength: (val) => val.length <= 2000 }}
+                    validators={{
+                      maxLength: (val) => val.length <= 2000,
+                      minLength: (val) => val.length > 10
+                    }}
                     validateOn="blur"
                   />
                   <Errors
@@ -112,7 +115,8 @@ class CommentModal extends Component {
                     show="touched"
                     messages={{
                       valueMissing: 'Comment is required',
-                      maxLength: 'Must be 2000 characters or less'
+                      maxLength: 'Must be 2000 characters or less',
+                      minLength: 'Must be more than 10 characters'
                     }}
                   />
                 </div>
