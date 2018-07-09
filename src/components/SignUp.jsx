@@ -10,9 +10,9 @@ export default class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: 'abratashov',
-      password: 'password',
-      password_confirmation: 'password'
+      username: '',
+      password: '',
+      password_confirmation: ''
     };
     this.onChange = this.onChange.bind(this);
     this.errorHandle = this.errorHandle.bind(this);

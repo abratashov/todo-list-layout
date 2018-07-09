@@ -10,8 +10,8 @@ export default class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: 'abratashov',
-      password: 'password',
+      username: '',
+      password: '',
       errorShow: false
     };
     this.onChange = this.onChange.bind(this);

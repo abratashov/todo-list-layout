@@ -14,6 +14,15 @@ export default class SessionService extends Component {
     axios.defaults.headers.common['access-token'] = localStorage.getItem('access-token');
   }
 
+  static getErrorMsg(error) {
+    let res = error.response;
+    let msg = 'Unexpected error';
+    if (res.data && res.data.errors && res.data.errors.full_messages) {
+      msg = res.data.errors.full_messages.join('. ');
+    }
+    return msg;
+  }
+
   static signUp(params, options) {
     axios.post(`http://${Settings.options().host}/auth`, params)
       .then((res) => {
@@ -23,7 +32,7 @@ export default class SessionService extends Component {
           setTimeout(function(){ document.location.href = '/' }, 1000);
         }
       }).catch(function (error) {
-        if (error.response) options.errorHandle(error.response.data.errors[0]);
+        if (error.response) options.errorHandle(SessionService.getErrorMsg(error));
       });
   }
 
@@ -36,7 +45,7 @@ export default class SessionService extends Component {
           setTimeout(function(){ document.location.href = '/' }, 1000);
         }
       }).catch(function (error) {
-        if (error.response) options.errorHandle(error.response.data.errors[0]);
+        if (error.response) options.errorHandle(SessionService.getErrorMsg(error));
       });
   }
 
