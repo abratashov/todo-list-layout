@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "axios": "*",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^3.4.1",
     "bootstrap-sass": "^3.3.7",
     "classnames": "^2.2.5",
     "file-loader": "^1.1.5",
