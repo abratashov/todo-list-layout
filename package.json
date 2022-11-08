@@ -19,7 +19,7 @@
     "eslint": "^4.6.1",
     "eslint-plugin-react": "^7.3.0",
     "extract-text-webpack-plugin": "^3.0.0",
-    "html-webpack-plugin": "^2.30.1",
+    "html-webpack-plugin": "^5.5.0",
     "node-sass": "^4.9.0",
     "react-hot-loader": "next",
     "sass-loader": "^6.0.6",
